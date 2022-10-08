@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        recipe = Recipe.create(user_id: session[:user_id])
+        recipe = Recipe.new(user_id: session[:user_id])
         recipe.update!(recipe_params)
         render json: recipe,include: :user, status: 201
     end
